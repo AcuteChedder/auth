@@ -19,6 +19,7 @@ export default {
             password: this.password
           });
           alert('Registration successful!');
+          this.$router.push('/login')
         } catch (error) {
           alert(error.response.data.error);
         }

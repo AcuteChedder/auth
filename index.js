@@ -10,7 +10,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-mongoose.connect('mongodb://127.0.0.1:27017/Authenfication').then(() => console.log('Mongo connected'))
+mongoose.connect('mongodb://127.0.0.1:27017/Authenfication').then(() => console.log('Mongo connected')).catch(err => console.error('connection error', err))
 
 const Schema = new mongoose.Schema({
     username: {type: String, unique: true},
@@ -24,7 +24,7 @@ Schema.pre('save', async function(next) {
     next()
 })
 
-const User = mongoose.model('User', Schema)
+const User = mongoose.model('login', Schema)
 
 app.post('/register', async (req, res) => {
     try {
@@ -46,6 +46,11 @@ app.post('/login', async (req, res) => {
     if(!user || !isPasswordValid) {
         return res.status(401).json({error: 'invalid compare'})
     }
+
+    res.json({
+        message: 'Login successful',
+        username: user.username
+    })
 
     res.json({message: 'login successful'})
 })
