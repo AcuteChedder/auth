@@ -37,15 +37,22 @@ export default {
         font-family: "Bebas Neue";
         min-height: 100vh;
         margin: 0;
+        background-color: #000;
     }
 
     h1 {
         font-size: 46px;
+        color: #fff;
     }
 
     button {
         font-family: "Bebas Neue";
         font-size: 24px;
-        padding: 14px 28px;
+        padding: 14px 46px;
+        border-radius: 26px;
+        border: none;   
+        cursor: pointer;
     }
+
+    
 </style>

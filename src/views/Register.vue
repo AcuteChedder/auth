@@ -33,8 +33,8 @@ export default {
     <div class="container">
       <form class="form" @submit.prevent="register">
         <h1 class="form-title">Register</h1>
-        <input placeholder="username" v-model="username" class="input-form">
-        <input placeholder="password" v-model="password" class="input-form" type="password">
+        <input placeholder="username" v-model="username" class="input-form" required>
+        <input placeholder="password" v-model="password" class="input-form" type="password" required>
         <button type="submit" class="form-btn">Register</button>
         <p class="form-desc">Have an account? <router-link to="/login" class="link">Log in</router-link></p>
       </form>
